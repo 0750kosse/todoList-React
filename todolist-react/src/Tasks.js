@@ -5,7 +5,10 @@ function Tasks(props) {
   const taskList = task.map(item => {
     const { name, id } = item
     return (
-      <p key={id}>{name} task id :{id}</p>
+      <div key={id} className="task-container">
+        <p className="task" >{name}</p>
+        <button>Delete Task</button>
+      </div>
     )
   })
   return (

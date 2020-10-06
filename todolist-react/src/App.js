@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tasks from './Tasks';
+import Form from './Form';
 import './App.css';
 
 class App extends Component {
@@ -11,10 +12,21 @@ class App extends Component {
       { name: "motorbiking", id: 2 }
     ]
   }
+
+  addData = (data) => {
+    data.id = Math.floor(Math.random() * 1000)
+    const updatedTasks = [...this.state.tasks, data];
+    this.setState({
+      tasks: updatedTasks
+    })
+  }
   render() {
     return (
       <div className="App" >
         <h1>To Do List App</h1>
+        <Form
+          addTask={this.addData}
+        />
         <Tasks
           task={this.state.tasks} />
       </div>
