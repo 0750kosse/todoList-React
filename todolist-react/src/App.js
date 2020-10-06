@@ -20,6 +20,14 @@ class App extends Component {
       tasks: updatedTasks
     })
   }
+
+  deleteData = (id) => {
+    const updatedTasks = this.state.tasks.filter(task => task.id !== id)
+    this.setState({
+      tasks: updatedTasks
+    })
+  }
+
   render() {
     return (
       <div className="App" >
@@ -28,7 +36,8 @@ class App extends Component {
           addTask={this.addData}
         />
         <Tasks
-          task={this.state.tasks} />
+          task={this.state.tasks}
+          deleteData={this.deleteData} />
       </div>
     );
   }

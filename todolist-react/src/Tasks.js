@@ -1,13 +1,14 @@
 import React from 'react';
 
 function Tasks(props) {
-  const { task } = props;
+  const { task, deleteData } = props;
+
   const taskList = task.map(item => {
     const { name, id } = item
     return (
       <div key={id} className="task-container">
         <p className="task" >{name}</p>
-        <button>Delete Task</button>
+        <button onClick={() => deleteData(id)}>Delete Task</button>
       </div>
     )
   })
